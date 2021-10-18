@@ -20,7 +20,7 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-    return array.sort((a, b) => a-b)
+    return array.sort((a, b) => a - b)
 }
 
 // EXERCÍCIO 04
@@ -121,7 +121,7 @@ function retornaSegundoMaiorESegundoMenor(array) {
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-    let msg = (`Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores}.`)
+    let msg = (`Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores.join(', ')}.`)
 
     return msg
 }
@@ -165,7 +165,10 @@ function retornaContasComSaldoAtualizado(contas) {
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  
+    const ordemAlfabetica = consultas.map((nomes) => {
+
+        return 
+    })
 }
 
 // EXERCÍCIO 15B
