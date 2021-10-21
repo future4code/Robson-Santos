@@ -39,12 +39,16 @@ div img {
 
 .botao-amarelo {
     background-color: #ffaf43;
+    display: block;
     width: 250px;
     height: 40px;
     border-radius: 5px;
     font-size: 20px;
     color: white;
-    margin: 50px;
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .botao-amarelo:hover {
@@ -80,6 +84,7 @@ div img {
 
 #container-para-comprar {
     background-color: #e7eb90;
+    text-align: center;
 }
 
 #container-para-comprar>p {
@@ -126,8 +131,22 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin-left: 46%;
 }
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+#tabela{
+    display: block;
+    text-align: center;
+    width: 700px;
+    padding: 30px;
+    margin-left: 30%;
+    border: 1px solid black;    
+}
+
+td {
+    padding: 20px;
 }
