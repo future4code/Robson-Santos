@@ -154,3 +154,9 @@ img {
     height: 50px;
     width: 50px;
 }
+
+.icone{
+    height: 14px;
+    width: 14px;
+    background-color: white;
+}
