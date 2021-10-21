@@ -143,10 +143,14 @@ td button {
     text-align: center;
     width: 700px;
     padding: 30px;
-    margin-left: 30%;
-    border: 1px solid black;    
+    margin-left: 30%;   
 }
 
 td {
     padding: 20px;
+}
+
+img {
+    height: 50px;
+    width: 50px;
 }
