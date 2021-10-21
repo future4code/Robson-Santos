@@ -112,7 +112,7 @@ td button {
     background-color: #fadf63;
     width: 150px;
     height: 30px;
-    border-radius: 5px;
+    border-bottom: 3px solid;
     color: black;
 }
 
