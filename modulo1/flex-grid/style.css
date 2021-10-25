@@ -55,15 +55,15 @@ main {
     grid-template-rows: 1fr 1fr;
     row-gap: 15px;
     column-gap: 15px;
-    border: 3px solid green;
-    padding-left: 15px;
+    padding: 15px
 }
 
 #itens_bolo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
+    box-shadow: 5px 5px 5px darkgray;
+
 }
 
 footer {
