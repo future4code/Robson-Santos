@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+header {
+    background-color: mediumvioletred;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: space-between;
+}
+
+h3 {
+    padding: 0 10px;
+    flex-grow: 1;
+}
+
+button{
+    padding: 0 10px;
+    justify-self: flex-end
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #f2d0e0;
+}
+
+#itens_menu {
+    display: grid;
+    grid-template-columns: 25px 125px 1fr;
+    padding: 5px;
+}
+
+#principal {
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 15px;
+    column-gap: 15px;
+    justify-items: center;
+    align-items: center;
+    border: 3px solid green;
+    padding-left: 15px;
+}
+
+#itens_bolo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+}
+
+footer {
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
