@@ -82,7 +82,6 @@ main {
 .videos {
     display: flex;
     flex-direction: column;
-    border: 5px solid black;
     justify-content: center;
     align-items: center;
 }
@@ -92,7 +91,7 @@ main {
     flex-direction: column;
     align-items: center;
     height: 85vh;
-    justify-content: center;
+    justify-content: space-evenly;
     background-color: #a8bbc6;
 }
 
