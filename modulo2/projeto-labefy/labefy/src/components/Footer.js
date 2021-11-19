@@ -1,5 +1,4 @@
 import React from "react";
-import App from "../App";
 import styled from "styled-components";
 
 const HeaderPrincipal = styled.div`

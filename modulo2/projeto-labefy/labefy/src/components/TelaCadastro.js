@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Cadastro from "./Cadastro";
-import TelaDetalhes from "./TelaDetalhesPL";
-import TelaVisualizar from "./TelaVisualizarPL";
+import axios from "axios"
 
 const TelaCadastroMain = styled.div`
 display: flex;
@@ -32,28 +30,47 @@ const AreaPrincipal = styled.div`
     border: 2px solid black;
 `
 
-// trocarTela = () => {
-//     switch (this.props.telaAtual) {
-//         case "cadastro":
-//             return <Cadastro />
-//         case "lista":
-//             return <TelaDetalhes />
-//         default:
-//             return <div> Página não encontrada </div>
-//     }     
-// }
-
 export default class TelaCadastro extends React.Component {
+    state = {
+        nomeDaPlaylist: ""
+    }
+
+    passarNomeDaPlaylist = (event) => {
+        this.setState({
+            nomeDaPlaylist: event.target.value
+        })
+    }
+
+    fazerCadastro = () => {
+        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
+        const body = {
+            name: this.state.nomeDaPlaylist
+        }
+        axios.post(url, body, {
+            headers: {
+            Authorization: "robson-santos-carver"
+            }
+        }).then((res) => {
+            console.log(res)
+        }).catch((error) => {
+            console.log(error.response)
+        })
+    }
+
     render () {
         return (
             <TelaCadastroMain>
                 <BarraLateral>
-                    <button> </button>  
+                    <button onClick={this.props.irParaLista}> Lista de Playlists</button>
+                    <button onClick={this.props.irParaCadastro}> Cadastrar nova Playlist</button>
                 </BarraLateral>
                 <AreaPrincipal>
-                    <Cadastro>
-
-                    </Cadastro>
+                   <h2>Cadastrar nova playlist</h2>
+                   <input placeholder={"Nome da Playlist"}
+                   value={this.state.nomeDaPlaylist}
+                   onChange={this.passarNomeDaPlaylist}
+                   />
+                   <button onClick={this.fazerCadastro}> Cadastrar nova playlist </button>
                 </AreaPrincipal>
 
             </TelaCadastroMain>
