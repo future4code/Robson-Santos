@@ -36,9 +36,9 @@ const CardPlaylist = styled.div`
     margin: 5px;
 `
 
-export default class TelaCadastro extends React.Component {
+export default class TelaVisualizarPL extends React.Component {
     state = {
-        playlists: [1,2]
+        playlists: []
     }
 
     pegarPlaylists = () => {
@@ -66,7 +66,7 @@ export default class TelaCadastro extends React.Component {
             headers: {
                 Authorization: "robson-santos-carver"
             }
-        }).then((response) => {
+        }).then(() => {
            alert("Playlist deletada com sucesso")
            this.pegarPlaylists()
         }).catch((error) => {
@@ -76,15 +76,16 @@ export default class TelaCadastro extends React.Component {
 
     render () {
         const listDePlaylist = this.state.playlists.map((lista) => {
-            return <CardPlaylist key={lista.id}> {lista.name} 
+            return <CardPlaylist key={lista.id}> {lista.name}
             <button onClick={() => this.deletarPlaylist(lista.id)}> X </button></CardPlaylist>
         })
 
         return (
             <TelaCadastroMain>
                 <BarraLateral>
-                    <button onClick={this.props.irParaLista}> Lista de Playlists</button>
-                    <button onClick={this.props.irParaCadastro}> Cadastrar nova Playlist</button>
+                {/* <button onClick={this.props.irParaLista}> Lista de Playlists</button> */}
+                <button onClick={this.props.irParaCadastro}> Cadastrar nova Playlist</button>
+                <button onClick={this.props.irParaMusicas}> Ver Músicas</button>
                 </BarraLateral>
                 <AreaPrincipal>
                     <h2>Minhas playlists</h2>

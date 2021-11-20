@@ -30,9 +30,49 @@ const AreaPrincipal = styled.div`
     border: 2px solid black;
 `
 
+const CardPlaylist = styled.div`
+    border: 2px solid black;
+    padding: 5px;
+    margin: 5px;
+`
+
 export default class TelaCadastro extends React.Component {
     state = {
-        nomeDaPlaylist: ""
+        nomeDaPlaylist: "",
+        playlists: [],
+    }
+
+    pegarPlaylists = () => {
+        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
+        axios.get(url, {
+            headers: {
+                Authorization: "robson-santos-carver"
+            }
+        }).then((response) => {
+            this.setState({
+                playlists: response.data.result.list
+            })
+        }).catch((error) => {
+            console.log(error.response)
+        })
+    }
+
+    componentDidMount() {
+        this.pegarPlaylists()
+    }
+
+    deletarPlaylist = (id) => {
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
+        axios.delete(url, {
+            headers: {
+                Authorization: "robson-santos-carver"
+            }
+        }).then(() => {
+           alert("Playlist deletada com sucesso")
+           this.pegarPlaylists()
+        }).catch((error) => {
+            console.log(error.response.data)
+        })
     }
 
     passarNomeDaPlaylist = (event) => {
@@ -50,19 +90,33 @@ export default class TelaCadastro extends React.Component {
             headers: {
             Authorization: "robson-santos-carver"
             }
-        }).then((res) => {
-            console.log(res)
+        }).then(() => {
+            alert('Playlist adicionada com sucesso!')
+            this.pegarPlaylists()
+            this.setState({
+                nomeDaPlaylist: ""
+            })
         }).catch((error) => {
             console.log(error.response)
         })
     }
 
     render () {
+        const listDePlaylist = this.state.playlists.map((lista) => {
+            return <div>
+                <CardPlaylist key={lista.id}> {lista.name}
+                <button onClick={() => this.deletarPlaylist(lista.id)}> X </button></CardPlaylist>
+            </div>
+        })
+
         return (
             <TelaCadastroMain>
                 <BarraLateral>
                     <button onClick={this.props.irParaLista}> Lista de Playlists</button>
-                    <button onClick={this.props.irParaCadastro}> Cadastrar nova Playlist</button>
+                    {/* <button onClick={this.props.irParaCadastro}> Cadastrar nova Playlist</button> */}
+                    <button onClick={this.props.irParaMusicas}>Ver Musicas</button>
+                    <h3>Minhas Playslists</h3>
+                    {listDePlaylist}
                 </BarraLateral>
                 <AreaPrincipal>
                    <h2>Cadastrar nova playlist</h2>
@@ -70,7 +124,7 @@ export default class TelaCadastro extends React.Component {
                    value={this.state.nomeDaPlaylist}
                    onChange={this.passarNomeDaPlaylist}
                    />
-                   <button onClick={this.fazerCadastro}> Cadastrar nova playlist </button>
+                   <button onClick={this.fazerCadastro}> Cadastrar </button>
                 </AreaPrincipal>
 
             </TelaCadastroMain>
