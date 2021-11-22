@@ -36,6 +36,14 @@ const CardPlaylist = styled.div`
     margin: 5px;
 `
 
+const AreaDeCadastro = styled.div`
+
+`
+
+const AreaDasPlayslists = styled.div`
+    display: grid;
+`
+
 export default class TelaCadastro extends React.Component {
     state = {
         nomeDaPlaylist: "",
@@ -113,18 +121,20 @@ export default class TelaCadastro extends React.Component {
             <TelaCadastroMain>
                 <BarraLateral>
                     <button onClick={this.props.irParaLista}> Lista de Playlists</button>
-                    {/* <button onClick={this.props.irParaCadastro}> Cadastrar nova Playlist</button> */}
-                    <button onClick={this.props.irParaMusicas}>Ver Musicas</button>
-                    <h3>Minhas Playslists</h3>
-                    {listDePlaylist}
+                    <button onClick={this.props.irParaCadastro}> Cadastrar nova Playlist</button>
                 </BarraLateral>
                 <AreaPrincipal>
-                   <h2>Cadastrar nova playlist</h2>
-                   <input placeholder={"Nome da Playlist"}
-                   value={this.state.nomeDaPlaylist}
-                   onChange={this.passarNomeDaPlaylist}
-                   />
-                   <button onClick={this.fazerCadastro}> Cadastrar </button>
+                    <AreaDeCadastro>
+                        <h2>Cadastrar nova playlist</h2>
+                        <input placeholder={"Nome da Playlist"}
+                        value={this.state.nomeDaPlaylist}
+                        onChange={this.passarNomeDaPlaylist}
+                        />
+                        <button onClick={this.fazerCadastro}> Cadastrar </button>
+                    </AreaDeCadastro>
+                    <AreaDasPlayslists>
+                        {listDePlaylist}
+                    </AreaDasPlayslists>
                 </AreaPrincipal>
 
             </TelaCadastroMain>

@@ -3,7 +3,6 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import TelaCadastro from "./components/TelaCadastro"
 import TelaVisualizarPL from "./components/TelaVisualizarPL"
-import TelaMusicas from "./components/TelaMusicas"
 import styled from "styled-components"
 
 const ContainerPrincipal = styled.div`
@@ -26,17 +25,9 @@ trocarTela = () => {
       return <TelaCadastro irParaLista={this.irParaLista}/>
     case "lista":
       return <TelaVisualizarPL irParaCadastro={this.irParaCadastro}/>
-    case "musicas":
-      return <TelaMusicas irParaMusicas={this.irParaMusicas}/>
     default:
       return <div> Página não encontrada </div>
   }     
-}
-
-irParaMusicas = () => {
-  this.setState({
-    telaAtual: "musicas"
-  })
 }
 
 irParaCadastro = () => {

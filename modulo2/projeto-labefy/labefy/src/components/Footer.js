@@ -13,8 +13,7 @@ export default class Header extends React.Component {
     render () {
         return (
             <HeaderPrincipal>
-                <h1>Header</h1>
-                <p> Login </p>
+                <h1>Footer</h1>
             </HeaderPrincipal>
         )
     }
