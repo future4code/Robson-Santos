@@ -30,6 +30,14 @@ const Post = (props) => {
     setComentando(!comentando)
   }
 
+  const enviarComentario = (comentario) => {
+    const listaDeComentarios = [...comentarios, comentario]
+    // eslint-disable-next-line no-unused-expressions
+    setComentarios(listaDeComentarios),
+    setComentando(true),
+    setNumeroComentarios(numeroComentarios + 1)
+  }
+
   const caixaDeComentario = comentando ? (
   <SecaoComentario enviarComentario={enviarComentario}/> ) : (
     comentarios.map(comentario => {
@@ -40,14 +48,6 @@ const Post = (props) => {
       )
     })
   )
-
-  const enviarComentario = (comentario) => {
-    const listaDeComentarios = [...comentarios, comentario]
-
-    setComentarios(listaDeComentarios),
-    setComentando(true),
-    setNumeroComentarios(numeroComentarios + 1)
-  }
   
   return(
     <PostContainer>

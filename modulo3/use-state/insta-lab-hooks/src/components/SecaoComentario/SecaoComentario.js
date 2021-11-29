@@ -32,5 +32,4 @@ const SecaoComentario = (props) => {
 	)
 }
 
-
 export default SecaoComentario
