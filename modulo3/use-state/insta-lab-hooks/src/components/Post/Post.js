@@ -34,7 +34,7 @@ const Post = (props) => {
     const listaDeComentarios = [...comentarios, comentario]
     // eslint-disable-next-line no-unused-expressions
     setComentarios(listaDeComentarios),
-    setComentando(true),
+    setComentando(false),
     setNumeroComentarios(numeroComentarios + 1)
   }
 
