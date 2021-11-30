@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const [pokeList, setPokeList] = useState([])
-  const [pokeName, setPokeName] = ("")
+  const [pokeName, setPokeName] = useState("")
 
   const changePokeName = event => {
     setPokeName(event.target.value) 
