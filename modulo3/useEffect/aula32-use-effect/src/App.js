@@ -28,8 +28,8 @@ export default function App() {
   return (
     <div>
       <select onChange={changePokeName}>
-          <option value={""}>Nenhum</option>
-            {() => pokeList.map(pokemon => {
+          <option value={pokeList}>Nenhum</option>
+            {pokeList.map(pokemon => {
             return (
               <option key={pokemon.name} value={pokemon.name}>
                 {pokemon.name}
