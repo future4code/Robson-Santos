@@ -6,6 +6,7 @@ const PaginaInicial = () => {
     return(
         <div>
             Pagina Inicial
+            <button>Match</button>
         </div>
     )    
 }
