@@ -1,9 +1,10 @@
 import React from "react"
+import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
 
 function App() {
   return (
     <div>
-      Teste
+      <PaginaInicial/>
     </div>
   );
 }
