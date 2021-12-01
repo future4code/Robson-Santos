@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
 import PaginaMatch from "./pages/PaginaMatch/PaginaMatch";
 
