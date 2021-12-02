@@ -21,7 +21,7 @@ const PaginaInicial = () => {
             id: perfil.id,
             choice: props
         }
-        axios.post(`${BASE_URL}/choose-person`)
+        axios.post(`${BASE_URL}/choose-person`, body)
         .then((response) => {
             console.log(response.data)
             mostrarPerfil()
