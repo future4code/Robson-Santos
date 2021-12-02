@@ -8,20 +8,40 @@ const PaginaMatch = () => {
 
     const mostrarMatches = () => {
         axios.get(`${BASE_URL}/matches`)
-        .then(() => {
-            setPerfilCombinado()
+        .then((response) => {
+            setPerfilCombinado(response.data.matches)
         }).catch((error) => {
             console.log(error.data)
         })
     }
 
+    const limparMatches = () => {
+        axios.put(`${BASE_URL}/clear`)
+        .then((response) => {
+            console.log(response.data)
+        }).catch((error) => {
+            console.log(error.data)
+        })
+    }
+
+        useEffect(() => {
+        mostrarMatches()
+    }, [])
+
+ 
+
     const mapearMatches = () => {
-        perfilCombinado
+        perfilCombinado.map((pessoa) => {
+            return <div>
+                {pessoa.name}
+            </div>
+        })
     }
 
     return (
         <div>
             Página Match
+            
         </div>
     )
 }
