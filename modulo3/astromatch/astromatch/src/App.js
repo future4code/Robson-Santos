@@ -1,28 +1,19 @@
-import React from "react"
+import React, {useState} from "react"
 import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
 import PaginaMatch from "./pages/PaginaMatch/PaginaMatch";
 
-export default class App extends React.Component {
-  state = {
-    tela: "inicial"
-  }
+const App = () => {
+  const [pagina, setPagina] = useState("inicial")
 
-  escolherTela = () => {
-    switch (this.state.tela) {
-      case "inicial":
-        return <PaginaInicial />
-      case "match":
-        return <PaginaMatch />
-      default:
-        return <PaginaInicial /> 
-    }
-  }
-
-  render() {
-    return (
+  return (
+    <div>
       <div>
-        {this.escolherTela()}        
+        <button onClick={() => setPagina("matches")}>Ver Matches</button>
+        <button onClick={() => setPagina("inicial")}>Página Inicial</button>
       </div>
-    )
-  }
+      {pagina === "inicial" ? <PaginaInicial/> : <PaginaMatch/>} 
+    </div>
+  )
 }
+
+export default App

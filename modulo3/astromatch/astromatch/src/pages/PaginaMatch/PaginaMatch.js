@@ -3,11 +3,11 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 
 const PaginaMatch = () => {
-    return(
+    return (
         <div>
-            Pagina de Match
+            Página Match
         </div>
-    )    
+    )
 }
 
 export default PaginaMatch

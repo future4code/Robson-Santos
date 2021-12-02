@@ -6,34 +6,43 @@ import { BASE_URL } from "../../constants/url"
 const PaginaInicial = () => {
     const [perfil, setPerfil] = useState([])
 
-    const pegarTodosOsPerfis = () => {
+    const mostrarPerfil = () => {
         axios.get(`${BASE_URL}/person`)
-        .then((res) => {
-            console.log(res.data.profile)
-            setPerfil(res.data.profile)
-        })
-        .catch((error) => {
+        .then((response) => {
+            console.log(response.data.profile)
+            setPerfil(response.data.profile)
+        }).catch((error) => {
             console.log(error.data)
         })
     }
 
+    const escolherPessoa = (props) => {
+        const body = {
+            id: perfil.id,
+            choice: props
+        }
+        axios.post(`${BASE_URL}/choose-person`)
+        .then((response) => {
+            console.log(response.data)
+            mostrarPerfil()
+        }).catch((error) => {
+            console.log(error.data)
+        })     
+    }
+
     useEffect(() => {
-        pegarTodosOsPerfis()
+        mostrarPerfil()
     }, [])
 
-    return(
+    return (
         <div>
-            <div>{() => perfil.map(pessoa => {
-                return (
-                    <div>
-                        {pessoa.name}
-                    </div>
-                )
-            })}
+            Página inicial
+            <div>
+            Nome :{perfil.name}
             </div>
-           
+            
         </div>
-    )    
+    )
 }
 
 export default PaginaInicial
