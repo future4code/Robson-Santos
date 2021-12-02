@@ -27,7 +27,15 @@ const PaginaInicial = () => {
             mostrarPerfil()
         }).catch((error) => {
             console.log(error.data)
-        })     
+        })
+    }
+
+    const like = () => {
+        escolherPessoa(true)
+    }
+
+    const dislike = () => {
+        escolherPessoa(false)
     }
 
     useEffect(() => {
