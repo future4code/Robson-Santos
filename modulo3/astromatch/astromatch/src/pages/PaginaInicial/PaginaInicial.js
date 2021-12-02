@@ -32,10 +32,12 @@ const PaginaInicial = () => {
 
     const like = () => {
         escolherPessoa(true)
+        console.log("like")
     }
 
     const dislike = () => {
         escolherPessoa(false)
+        console.log("dislike")
     }
 
     useEffect(() => {
@@ -47,6 +49,10 @@ const PaginaInicial = () => {
             Página inicial
             <div>
             Nome :{perfil.name}
+            </div>
+            <div>
+                <button onClick={dislike}>X</button>
+                <button onClick={like}>V</button>
             </div>
             
         </div>
