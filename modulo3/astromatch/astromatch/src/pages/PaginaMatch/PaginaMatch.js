@@ -22,7 +22,10 @@ const PaginaMatch = (props) => {
         axios.put(`${BASE_URL}/clear`)
         .then((response) => {
             console.log(response.data)
-            props.mostrarPerfil()
+            if (response.data.message === "Success") {
+                alert('Seus matches foram excluidos com sucesso. Volte a página inicial para obter novos matches.')
+            }
+            props.mostrarPerfil()    
         }).catch((error) => {
             console.log(error.data)
         })
