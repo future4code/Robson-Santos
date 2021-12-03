@@ -5,6 +5,7 @@ import { BASE_URL } from "../../constants/url"
 import './styles.css'
 import naoOM from '../../assets/naoOM.png'
 import simOM from '../../assets/simOM.png'
+import reload from '../../assets/reload.png'
 
 const PaginaInicial = () => {
     const [perfil, setPerfil] = useState([])
@@ -51,7 +52,9 @@ const PaginaInicial = () => {
     }, [])
 
     return (
-        <div id="AreaPrincipal">
+        <div id ="AreaPrincipal">
+            {perfil ?
+            <div>            
             <div id="areaDaFoto">
                 <img class="imagemDoPerfil" src={perfil.photo}/>
             </div>
@@ -62,8 +65,15 @@ const PaginaInicial = () => {
             <div id="botoesLikeDislike">
                 <div id="disLike" onClick={dislike}><img src={naoOM}></img></div>
                 <div id="disLike" onClick={like}><img src={simOM}></img></div>
+            </div>     
+        </div>
+        :
+            <div>
+                <div>
+                    <p>Sem novas pessoas na sua área! Recarregue e tente novamente</p>
+                </div>
             </div>
-            
+        }
         </div>
     )
 }

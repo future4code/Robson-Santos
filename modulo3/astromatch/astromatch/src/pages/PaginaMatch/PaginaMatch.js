@@ -50,7 +50,7 @@ const PaginaMatch = (props) => {
                 <p>{mapearMatches}</p>
             </div>   
         </div>                 
-            <div id="lixeira"onClick={limparMatches}><img id="apagarMatchIcon" src={lixeira}/>Apagar Matches</div>
+            <div id="lixeira" onClick={limparMatches}><img id="apagarMatchIcon" src={lixeira}/>Apagar Matches</div>
         </div>
     )
 }

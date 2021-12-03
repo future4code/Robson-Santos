@@ -22,7 +22,8 @@
 
 #containerMatch {
     display: flex;
-    margin: 5px;
+    margin: 10px;
+    overflow: scroll;
 }
 
 #imagemMatch {
@@ -31,7 +32,6 @@
     padding: 6px;
     display: flex;
     align-items: center;
-    border: 2px solid black;
 }
 
 #textoMatch {
@@ -51,7 +51,8 @@
 
 #cadaMatch {
     display: flex;
-    width: 315px;
+    width: 270px;
     align-items: center;
     margin: 5px;
+    border: 2px solid black;
 }
