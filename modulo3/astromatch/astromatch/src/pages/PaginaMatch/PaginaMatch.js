@@ -2,6 +2,7 @@ import React from "react"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { BASE_URL } from "../../constants/url"
+import './matches.css'
 
 const PaginaMatch = (props) => {
     const [perfilCombinado, setPerfilCombinado] = useState([])
@@ -32,14 +33,17 @@ const PaginaMatch = (props) => {
 
     const mapearMatches = perfilCombinado.map((pessoa) => {
             return <div key={pessoa.id}>
-                {pessoa.name}
+                <img id="imagemMatch"src={pessoa.photo}/>
+                <div>{pessoa.name}, {pessoa.age}</div>
             </div>
         })
 
     return (
-        <div>
-            Página Match
-            <div>{mapearMatches}</div>            
+        <div id="AreaMatches">
+            <p id="cabecalhoMatch">DEU MATCH!</p>
+            <div id="containerMatch">
+                <p id="cadaMatch">{mapearMatches}</p>
+            </div>            
             <button onClick={limparMatches}>Limpar</button>
         </div>
     )

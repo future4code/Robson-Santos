@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { BASE_URL } from "../../constants/url"
 import './styles.css'
+import naoOM from '../../assets/naoOM.png'
+import simOM from '../../assets/simOM.png'
 
 const PaginaInicial = () => {
     const [perfil, setPerfil] = useState([])
@@ -54,8 +56,12 @@ const PaginaInicial = () => {
                 <img class="imagemDoPerfil" src={perfil.photo}/>
             </div>
             <div>
-                <button onClick={dislike}>X</button>
-                <button onClick={like}>V</button>
+               <p id="nomeDescricao"> {perfil.name}, {perfil.age} </p>
+               <p id="nomeDescricao1">{perfil.bio}</p>
+            </div>
+            <div id="botoesLikeDislike">
+                <div id="disLike" onClick={dislike}><img src={naoOM}></img></div>
+                <div id="disLike" onClick={like}><img src={simOM}></img></div>
             </div>
             
         </div>

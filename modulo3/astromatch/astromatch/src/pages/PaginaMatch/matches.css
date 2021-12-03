@@ -1,0 +1,29 @@
+#AreaMatches {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    width: 90%;
+    height: 350px;
+}
+
+#cabecalhoMatch {
+    font-size: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#containerMatch {
+    display: flex;
+    border: 1px solid blue;
+}
+
+#imagemMatch {
+    width: 60px;
+    height: 60px;
+}
+
+#cadaMatch {
+    border: 1px solid black;
+    width: 100%;
+}
