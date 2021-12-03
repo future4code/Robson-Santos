@@ -2,6 +2,7 @@ import React from "react"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { BASE_URL } from "../../constants/url"
+import './styles.css'
 
 const PaginaInicial = () => {
     const [perfil, setPerfil] = useState([])
@@ -24,6 +25,9 @@ const PaginaInicial = () => {
         axios.post(`${BASE_URL}/choose-person`, body)
         .then((response) => {
             console.log(response.data)
+            if(response.data.isMatch) {
+                alert("It's a match!")
+            }
             mostrarPerfil()
         }).catch((error) => {
             console.log(error.data)
@@ -45,10 +49,9 @@ const PaginaInicial = () => {
     }, [])
 
     return (
-        <div>
-            Página inicial
-            <div>
-            Nome :{perfil.name}
+        <div id="AreaPrincipal">
+            <div id="areaDaFoto">
+                <img class="imagemDoPerfil" src={perfil.photo}/>
             </div>
             <div>
                 <button onClick={dislike}>X</button>

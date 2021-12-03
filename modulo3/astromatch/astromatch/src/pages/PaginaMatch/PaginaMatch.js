@@ -28,7 +28,7 @@ const PaginaMatch = (props) => {
 
         useEffect(() => {
         mostrarMatches()
-    }, []) 
+    }, [])
 
     const mapearMatches = perfilCombinado.map((pessoa) => {
             return <div key={pessoa.id}>
@@ -39,8 +39,7 @@ const PaginaMatch = (props) => {
     return (
         <div>
             Página Match
-            <div>{mapearMatches}</div>
-            
+            <div>{mapearMatches}</div>            
             <button onClick={limparMatches}>Limpar</button>
         </div>
     )
