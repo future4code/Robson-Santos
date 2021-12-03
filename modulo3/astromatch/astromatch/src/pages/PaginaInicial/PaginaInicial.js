@@ -69,8 +69,8 @@ const PaginaInicial = () => {
         </div>
         :
             <div>
-                <div>
-                    <p>Sem novas pessoas na sua área! Recarregue e tente novamente</p>
+                <div id="semPerfil">
+                    <p>Sem novas pessoas na sua área! Apague seus matches e tente novamente</p>
                 </div>
             </div>
         }
