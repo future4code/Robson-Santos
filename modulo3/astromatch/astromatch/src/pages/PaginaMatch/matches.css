@@ -1,3 +1,9 @@
+#principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #AreaMatches {
     display: flex;
     flex-direction: column;
@@ -15,15 +21,36 @@
 
 #containerMatch {
     display: flex;
-    border: 1px solid blue;
+    margin: 5px;
 }
 
 #imagemMatch {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+}
+
+#textoMatch {
+    margin-left: 14px;
+}
+
+#apagarMatchIcon{
+    width: 50px;
+    height: 50px;
+}
+
+#lixeira {
+    display: flex;
+    align-items: center;
+    padding: 20px;
 }
 
 #cadaMatch {
-    border: 1px solid black;
-    width: 100%;
+    display: flex;
+    width: 315px;
+    align-items: center;
+    margin: 5px;
 }
