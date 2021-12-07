@@ -21,15 +21,15 @@ const App = () => {
           <AdminHomePage/>
         </Route>
 
-        <Route exact path={"/applicationform"}>
+        <Route exact path={"/application"}>
           <ApplicationFormPage/>
         </Route>
 
-        <Route exact path={"/createatrip"}>
+        <Route exact path={"/create"}>
           <CreateTripPage/>
         </Route>
 
-        <Route exact path={"/listtrips"}>
+        <Route exact path={"/list"}>
           <ListTripsPage/>
         </Route>
 
