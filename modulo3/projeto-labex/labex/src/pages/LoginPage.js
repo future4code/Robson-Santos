@@ -1,9 +1,17 @@
-import React from "react";
+import React from "react"
+import { useHistory } from "react-router"
+import Header from "../components/Header"
 
 const LoginPage = () => {
+  const history = useHistory()
+  const goBack = () => {
+    history.goBack()
+  }
+
     return (
         <div>
-          Página de login
+          <Header/>
+          <button onClick={goBack}>voltar</button>
         </div>
       )
 }

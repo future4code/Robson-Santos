@@ -16,8 +16,8 @@ const HomePage = () => {
         <div>
             <Header/>
           <p>HOME</p>
-          <button onClick={goToAdminArea}>admin</button>
-          <button onClick={goToTripList}>trips</button>
+          <button onClick={goToAdminArea}>Área Administrativa</button>
+          <button onClick={goToTripList}>Viagens</button>
         </div>
       )
 }

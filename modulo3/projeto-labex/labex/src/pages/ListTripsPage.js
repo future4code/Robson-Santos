@@ -1,9 +1,21 @@
-import React from "react";
+import React from "react"
+import Header from "../components/Header"
+import { useHistory } from "react-router"
 
 const ListTripsPage = () => {
+    const history = useHistory()
+    const goToApplication = () => {
+        history.push("/application")
+    }
+    const goBack = () => {
+        history.goBack()
+    }
+
     return (
         <div>
-          Lista de Viagens
+            <Header/>
+            <button onClick={goToApplication}>Se inscrever</button>
+            <button onClick={goBack}>voltar</button>
         </div>
       )
 }
