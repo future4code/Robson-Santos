@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "../components/Header"
 import { useHistory } from "react-router"
+import Footer from "../components/Footer"
 
 const HomePage = () => {
     const history = useHistory()
@@ -15,9 +16,10 @@ const HomePage = () => {
     return (
         <div>
             <Header/>
-          <p>HOME</p>
-          <button onClick={goToAdminArea}>Área Administrativa</button>
-          <button onClick={goToTripList}>Viagens</button>
+            <p>HOME</p>
+            <button onClick={goToAdminArea}>Área Administrativa</button>
+            <button onClick={goToTripList}>Viagens</button>
+            <Footer/>
         </div>
       )
 }
