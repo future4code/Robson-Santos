@@ -1,0 +1,58 @@
+#principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#AreaMatches {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    width: 90%;
+    height: 350px;
+}
+
+#cabecalhoMatch {
+    font-size: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#containerMatch {
+    display: flex;
+    margin: 10px;
+    overflow: scroll;
+}
+
+#imagemMatch {
+    width: 50px;
+    height: 50px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+}
+
+#textoMatch {
+    margin-left: 14px;
+}
+
+#apagarMatchIcon{
+    width: 50px;
+    height: 50px;
+}
+
+#lixeira {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+#cadaMatch {
+    display: flex;
+    width: 260px;
+    align-items: center;
+    margin: 5px;
+    border: 2px solid black;
+}
