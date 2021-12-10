@@ -13,7 +13,8 @@ import background from './assets/background.png'
 const AreaPrincipal = styled.div`
   background-image: url(${background});
   background-size: auto;
-  height: 100vh;
+  background-repeat: repeat-y;
+  height: 1fr;
 `
 
 const App = () => {

@@ -10,7 +10,7 @@ const ContainerPrincipal = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: white;
-    margin: 6vh 15vw 5px;
+    margin: 6vh 15vw 6vh;
     padding: 15px;
     border: 2px solid black;
 
@@ -18,7 +18,6 @@ const ContainerPrincipal = styled.div`
     @media(max-width: 815px) {
         display: flex;
         flex-direction: column;
-        overflow: scroll;
     }
 `
 

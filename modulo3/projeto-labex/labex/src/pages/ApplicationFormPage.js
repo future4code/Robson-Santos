@@ -11,26 +11,32 @@ const ApplicationFormPage = () => {
   //history
   const history = useHistory()
   const goBack = () => {
-    history.goBack()
+    history.push("/list")
   }
 
   //outras variaveis
-  const [value, setValue] = useState('')
+  const [country, setCountry] = useState('')
   const options = useMemo(() => countryList().getData(), [])
+  const [form, setForm] = useState({
+    name: "",
+    age: "",
+    applicationText: "",
+    profession: "",
+    country: country
+})
 
   //funções
-  const applyToTrip = (id) => {
-    axios.post(`${BASE_URL}/trips/${id}/apply`)
-    .then((response) => {
-
-    })
-    .catch((error) => {
-
-    })
+  const changeHandler = (country) => {
+    setCountry(country)
   }
 
-  const changeHandler = (value) => {
-    setValue(value)
+  const applyToTrip = (event) => {
+    event.preventDefault()
+    const {name, value} = event.target
+    setForm({
+      ...form,
+      [name]: value
+    })
   }
 
   return (
@@ -38,7 +44,7 @@ const ApplicationFormPage = () => {
       <Header/>
         <Select 
         options={options} 
-        value={value} 
+        value={country} 
         onChange={changeHandler} />
         <button onClick={goBack}>voltar</button>
       <Footer/>
