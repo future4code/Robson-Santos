@@ -1,8 +1,7 @@
-import React, { useEffect, useState} from "react"
+import React, { useState } from "react"
 import Header from "../components/Header"
 import { useHistory } from "react-router"
-import axios from "axios"
-import { BASE_URL } from "../constants/url"
+import useGetTrips from "../hooks/useGetTrips"
 import Footer from "../components/Footer"
 import styled from "styled-components"
 
@@ -19,6 +18,7 @@ const ContainerPrincipal = styled.div`
     @media(max-width: 815px) {
         display: flex;
         flex-direction: column;
+        overflow: scroll;
     }
 `
 
@@ -38,7 +38,7 @@ const Titulo = styled.h3`
 
 const ListTripsPage = () => {
     //outras variaveis
-    const [trip, setTrip] = useState([])
+    const [trip] = useGetTrips()
 
     //history    
     const history = useHistory()
@@ -50,18 +50,6 @@ const ListTripsPage = () => {
     const goBack = () => {
         history.goBack()
     }
-
-    //funções
-    const getTrips = () => {
-        axios.get(`${BASE_URL}/trips`)
-        .then((response) => {
-            setTrip(response.data.trips)
-        })
-    }
-
-    useEffect(() =>{
-        getTrips()
-    }, [])
 
     //map
     const showTrips = trip.map((trip) => {

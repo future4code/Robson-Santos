@@ -5,7 +5,7 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 import { BASE_URL } from "../constants/url"
 
-const ApplicationFormPage = (props) => {
+const ApplicationFormPage = () => {
   //history
   const history = useHistory()
   const goBack = () => {

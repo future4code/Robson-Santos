@@ -8,10 +8,9 @@ const AreaPrincipal = styled.div`
     font-size: 24px;
     align-items: center;
     justify-content: space-around;
-    position: absolute;
-    left:0;
-    bottom:0;
-    right:0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 `
 
 const Footer = () => {
