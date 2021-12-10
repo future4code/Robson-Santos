@@ -4,6 +4,7 @@ import { useHistory } from "react-router"
 import Footer from "../components/Footer"
 
 const HomePage = () => {
+    //history
     const history = useHistory()
     const goToAdminArea = () => {
         history.push("/admin")

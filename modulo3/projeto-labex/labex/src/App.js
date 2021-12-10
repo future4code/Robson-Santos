@@ -14,7 +14,6 @@ const AreaPrincipal = styled.div`
   background-image: url(${background});
   background-size: auto;
   height: 100vh;
-
 `
 
 const App = () => {
@@ -31,7 +30,7 @@ const App = () => {
             <AdminHomePage/>
           </Route>
 
-          <Route exact path={"/application"}>
+          <Route exact path={`/application`}>
             <ApplicationFormPage/>
           </Route>
 

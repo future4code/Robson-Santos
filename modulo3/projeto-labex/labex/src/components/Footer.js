@@ -17,7 +17,7 @@ const AreaPrincipal = styled.div`
 const Footer = () => {
     return (
         <AreaPrincipal>
-            Header
+            Footer
         </AreaPrincipal>
     )
 }

@@ -1,9 +1,11 @@
 import React from "react"
 import styled from "styled-components"
+import { Login } from "./Login"
 
+//styled components
 const AreaPrincipal = styled.div`
     display: flex;
-    height: 6vh;
+    height: 10vh;
     background-color: yellow;
     font-size: 24px;
     align-items: center;
@@ -13,7 +15,8 @@ const AreaPrincipal = styled.div`
 const Header = () => {
     return (
         <AreaPrincipal>
-            Header
+            LabeX
+            <Login/>
         </AreaPrincipal>
     )
 }
