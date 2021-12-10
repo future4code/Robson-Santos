@@ -46,7 +46,7 @@ const ListTripsPage = () => {
     }
 
     const goBack = () => {
-        history.goBack()
+        history.push('/')
     }
 
     //map

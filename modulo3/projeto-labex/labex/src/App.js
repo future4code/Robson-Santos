@@ -12,7 +12,7 @@ import background from './assets/background.png'
 
 const AreaPrincipal = styled.div`
   background-image: url(${background});
-  background-size: auto;
+  background-size: cover;
   background-repeat: repeat-y;
   height: 1fr;
 `

@@ -9,6 +9,12 @@ import Select from 'react-select'
 import useGetTrips from "../hooks/useGetTrips"
 import styled from "styled-components"
 
+const AreaPrincipal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const ContainerPrincipal = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,6 +23,7 @@ const ContainerPrincipal = styled.div`
   border-radius: 20px 5px;
   padding: 1vh;
   background-color: white;
+  width: 60vw;
 `
 
 const ApplicationFormPage = () => {
@@ -29,28 +36,34 @@ const ApplicationFormPage = () => {
   //outras variaveis
   const [trips] = useGetTrips()
   const [country, setCountry] = useState('')
-  const options = useMemo(() => countryList().getData(), [])
   const [form, setForm] = useState({
     name: "",
     age: "",
     applicationText: "",
     profession: "",
     country: country
-})
+  })
+  const options = useMemo(() => countryList().getData(), [])
 
   //funções
-  const changeHandler = (country) => {
+  const changeHandler = country => {
     setCountry(country)
   }
 
+  console.log(country)
+
   const applyToTrip = (event) => {
+
+    console.log(event)
     event.preventDefault()
     const {name, value} = event.target
     setForm({
       ...form,
       [name]: value
-    })
+    })    
   }
+
+  console.log(form)
 
   const sendApplication = (event) => {
     event.preventDefault()
@@ -81,8 +94,17 @@ const ApplicationFormPage = () => {
     )
   })
 
+  const loadCountry = (event) => {
+    setForm({
+      ...form,
+      ["country"]: event.label
+    })
+  }
+
+  console.log(form)
+
   return (
-    <div>
+    <AreaPrincipal>
       <Header/>
         <ContainerPrincipal>
           <h3>Formulário</h3>
@@ -121,9 +143,10 @@ const ApplicationFormPage = () => {
             <p>País</p>
             <Select 
             options={options} 
-            value={country} 
-            onChange={changeHandler} />
-            </form>
+            value={form.country}
+            name="country" 
+            onChange={loadCountry} 
+            />
 
             <p>Motivo da viagem</p>
             <input
@@ -132,11 +155,13 @@ const ApplicationFormPage = () => {
             onChange={applyToTrip}
             required
             />
+
           <button>Enviar</button>
           <button onClick={goBack}>voltar</button>
+            </form>
         </ContainerPrincipal>
       <Footer/>
-    </div>
+    </AreaPrincipal>
   )
 }
 

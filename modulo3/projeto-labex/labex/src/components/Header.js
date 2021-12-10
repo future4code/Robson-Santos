@@ -10,6 +10,7 @@ const AreaPrincipal = styled.div`
     font-size: 24px;
     align-items: center;
     justify-content: space-around;
+    width:100vw;
 `
 
 const Header = () => {
