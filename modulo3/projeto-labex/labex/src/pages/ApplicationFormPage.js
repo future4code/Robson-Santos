@@ -1,9 +1,11 @@
 import axios from "axios"
-import React from "react"
+import React, { useState, useMemo} from "react"
 import { useHistory } from "react-router"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import { BASE_URL } from "../constants/url"
+import countryList from "react-select-country-list"
+import Select from 'react-select'
 
 const ApplicationFormPage = () => {
   //history
@@ -11,6 +13,10 @@ const ApplicationFormPage = () => {
   const goBack = () => {
     history.goBack()
   }
+
+  //outras variaveis
+  const [value, setValue] = useState('')
+  const options = useMemo(() => countryList().getData(), [])
 
   //funções
   const applyToTrip = (id) => {
@@ -23,10 +29,18 @@ const ApplicationFormPage = () => {
     })
   }
 
+  const changeHandler = (value) => {
+    setValue(value)
+  }
+
   return (
     <div>
       <Header/>
-      <button onClick={goBack}>voltar</button>
+        <Select 
+        options={options} 
+        value={value} 
+        onChange={changeHandler} />
+        <button onClick={goBack}>voltar</button>
       <Footer/>
     </div>
   )
