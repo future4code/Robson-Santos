@@ -1,8 +1,19 @@
-import React from "react"
+import React, { useEffect, useState} from "react"
 import { useHistory } from "react-router"
+import useDeleteTrip from '../hooks/useDeleteTrip'
+import useGetTrips from '../hooks/useGetTrips'
 import Header from "../components/Header"
 
 const AdminHomePage = () => {
+    //token
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token === null) {
+            history.push('/login')
+        }
+    }, [useGetTrips])
+
+    // history
     const history = useHistory()
     const goToCreateTrip = () => {
         history.push("/create")

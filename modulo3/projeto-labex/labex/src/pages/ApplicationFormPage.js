@@ -35,7 +35,7 @@ const ApplicationFormPage = () => {
 
   //outras variaveis
   const [trips] = useGetTrips()
-  const [country, setCountry] = useState('')
+  const [country] = useState('')
   const [form, setForm] = useState({
     name: "",
     age: "",
@@ -46,12 +46,6 @@ const ApplicationFormPage = () => {
   const options = useMemo(() => countryList().getData(), [])
 
   //funções
-  const changeHandler = country => {
-    setCountry(country)
-  }
-
-  console.log(country)
-
   const applyToTrip = (event) => {
 
     console.log(event)
@@ -97,7 +91,7 @@ const ApplicationFormPage = () => {
   const loadCountry = (event) => {
     setForm({
       ...form,
-      ["country"]: event.label
+      [country]: event.label
     })
   }
 
