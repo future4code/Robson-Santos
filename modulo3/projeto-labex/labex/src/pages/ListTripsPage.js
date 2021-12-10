@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Header from "../components/Header"
 import { useHistory } from "react-router"
 import useGetTrips from "../hooks/useGetTrips"
@@ -14,7 +14,6 @@ const ContainerPrincipal = styled.div`
     padding: 15px;
     border: 2px solid black;
 
-    
     @media(max-width: 815px) {
         display: flex;
         flex-direction: column;

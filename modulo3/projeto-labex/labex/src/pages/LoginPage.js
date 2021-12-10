@@ -60,7 +60,6 @@ const LoginPage = () => {
           type = "email"
           value = {email}
           onChange = {onChangeEmail}
-          type="email"
           required
           />
           <input
