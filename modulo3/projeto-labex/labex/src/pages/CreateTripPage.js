@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useHistory } from "react-router"
 import Header from "../components/Header"
 
@@ -7,6 +7,14 @@ const CreateTripPage = () => {
   const goBack = () => {
     history.push('/admin')
   }
+
+  const [form, setForm] = useState({
+    name: '',
+    description: '',
+    planet: '',
+    durationInDays: '',
+    date: ''
+  })
 
     return (
         <div>
