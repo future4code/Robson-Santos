@@ -5,7 +5,7 @@ import Header from "../components/Header"
 const CreateTripPage = () => {
   const history = useHistory()
   const goBack = () => {
-    history.goBack()
+    history.push('/admin')
   }
 
     return (

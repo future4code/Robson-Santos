@@ -1,9 +1,10 @@
-import React, { useEffect, useState} from "react"
+import React, { useEffect} from "react"
 import { useHistory } from "react-router"
-import useDeleteTrip from '../hooks/useDeleteTrip'
 import useGetTrips from '../hooks/useGetTrips'
 import Header from "../components/Header"
 import styled from "styled-components"
+import axios from "axios"
+import { BASE_URL } from "../constants/url"
 
 const CardPrincipal = styled.div`
     display: flex;
@@ -19,7 +20,6 @@ const CardViagens = styled.div`
 const AdminHomePage = () => {
     //token
     useEffect(() => {
-        const token = localStorage.getItem('token')
         if (token === null) {
             history.push('/login')
         }
@@ -37,13 +37,29 @@ const AdminHomePage = () => {
     }
 
     const goBack = () => {
-        history.replace("/")
+        history.push("/")
     }
     
     //outras variaveis
     const [trip] = useGetTrips()
+    const token = localStorage.getItem('token')
 
     //funções
+    const deleteTrip = (id) => {
+        const header = {
+            headers: {
+                auth: token 
+            }
+        }
+        axios.delete(`${BASE_URL}/trips/${id}`, header)
+        .then(() => {
+            alert('Viagem apagada com sucesso.')
+        })
+        .catch((error) => {
+            console.log(error.response)
+        })
+    }
+
     const loadTrips = trip.map((trip) => {
         return (
             <CardViagens>
@@ -51,6 +67,7 @@ const AdminHomePage = () => {
                 onClick={() => goToTripDetails(trip.id)}>
                 {trip.name}
                 </div>
+                <div onClick={() => deleteTrip(trip.id)}> X </div>
             </CardViagens>
         )
     })
@@ -64,7 +81,6 @@ const AdminHomePage = () => {
           </CardPrincipal>          
           <div>
             <button onClick={goToCreateTrip}>Criar viagem</button>
-            <button onClick={goToTripDetails}>Detalhes das viagens</button>
             <button onClick={goBack}>voltar</button>
           </div>          
         </div>
