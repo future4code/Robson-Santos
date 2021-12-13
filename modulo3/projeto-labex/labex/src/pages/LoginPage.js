@@ -3,6 +3,42 @@ import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import Header from "../components/Header"
 import { BASE_URL } from "../constants/url"
+import styled from "styled-components"
+
+//styled
+const AreaPrincipal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Form = styled.form`
+  display:flex;
+  flex-direction: column;
+  margin: 5px;
+`
+
+const Title = styled.div`
+  font-size: 30px;
+  margin-top: 5vh;
+`
+
+const ContainerPrincipal = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 10vh;
+  padding: 10px;
+`
+
+const Click2 = styled.button`
+  height: 40px;
+  width: 100px;
+  margin: 40px;
+`
 
 const LoginPage = () => {
   //history
@@ -57,34 +93,36 @@ const LoginPage = () => {
   }
 
   return (
-    <div>
+    <AreaPrincipal>
       <Header/>
-      <form onSubmit={onSubmitLogin}>
-        Login
-          <input 
-          placeholder = "nome"
-          value = {nome}
-          onChange = {onChangeNome}
-          required
-          />
-          <input
-          placeholder = "email"
-          type = "email"
-          value = {email}
-          onChange = {onChangeEmail}
-          required
-          />
-          <input
-          placeholder = "senha"
-          type = "password"
-          value = {password}
-          onChange = {onChangePassword}
-          required
-          />
-          <button>Enviar</button>
-      </form>
-        <button onClick={goBack}>voltar</button>
-    </div>
+      <Title>Login</Title>
+      <ContainerPrincipal>
+        <Form onSubmit={onSubmitLogin}>          
+            <input 
+            placeholder = "nome"
+            value = {nome}
+            onChange = {onChangeNome}
+            required
+            />
+            <input
+            placeholder = "email"
+            type = "email"
+            value = {email}
+            onChange = {onChangeEmail}
+            required
+            />
+            <input
+            placeholder = "senha"
+            type = "password"
+            value = {password}
+            onChange = {onChangePassword}
+            required
+            />
+            <button>Enviar</button>
+        </Form>
+      </ContainerPrincipal>      
+        <Click2 onClick={goBack}>voltar</Click2>
+    </AreaPrincipal>
   )
 }
 
