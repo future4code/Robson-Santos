@@ -42,7 +42,7 @@ const ListTripsPage = () => {
     const history = useHistory()
 
     const goToApplicationForm = () => {
-        history.push(`/application/`)
+        history.push(`/application`)
     }
 
     const goBack = () => {
@@ -62,7 +62,6 @@ const ListTripsPage = () => {
             <ContainerPrincipal>{showTrips}</ContainerPrincipal>   
             <button onClick={goToApplicationForm}>Quero me inscrever!</button> 
             <button onClick={goBack}>voltar</button>
-            <Footer/>
         </div>
       )
 }

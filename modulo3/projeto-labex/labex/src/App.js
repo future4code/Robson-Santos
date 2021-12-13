@@ -31,7 +31,7 @@ const App = () => {
             <AdminHomePage/>
           </Route>
 
-          <Route exact path={`/application/:id`}>
+          <Route exact path={`/application`}>
             <ApplicationFormPage/>
           </Route>
 

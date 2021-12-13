@@ -20,7 +20,6 @@ const HomePage = () => {
             <p>HOME</p>
             <button onClick={goToAdminArea}>Área Administrativa</button>
             <button onClick={goToTripList}>Viagens</button>
-            <Footer/>
         </div>
       )
 }

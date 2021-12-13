@@ -154,7 +154,6 @@ const ApplicationFormPage = () => {
           <button onClick={goBack}>voltar</button>
             </form>
         </ContainerPrincipal>
-      <Footer/>
     </AreaPrincipal>
   )
 }
