@@ -3,6 +3,34 @@ import React, { useEffect, useState} from "react"
 import { useHistory } from "react-router"
 import Header from "../components/Header"
 import { BASE_URL } from "../constants/url"
+import styled from "styled-components"
+
+const Geral = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Card = styled.div `
+  border: 3px solid black;
+  padding: 8px;
+`
+
+const CardPrincipal = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 5vh;
+  padding: 10px;
+`
+
+const Title = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 const TripDetailsPage = () => {
   //history
@@ -52,46 +80,48 @@ const TripDetailsPage = () => {
 
   const candidatesList = candidates.map((candidate) => {
     return (
-      <div>
+      <Card>
         <div key={candidate.id}>
-          <div>{candidate.name} - {candidate.age}</div>
-          <div>{candidate.country} - {candidate.profession}</div>
-          <p>{candidate.applicationText}</p>
-          <button onClick={() => decideCandidate(candidate.id)}> V </button>
+          <div>Nome: {candidate.name} - {candidate.age} anos</div>
+          <div>País: {candidate.country} - Profissão: {candidate.profession}</div>
+          <p> Motivo da viagem: {candidate.applicationText}</p>
+          <button onClick={() => decideCandidate(candidate.id)}> Aprovar </button>
         </div>
-      </div>
+      </Card>
     )
   })
 
   const approvedList = approved.map((candidate) => {
     return (
-      <div>
+      <Card>
         <p key={candidate.id}>
         {candidate.name}
         </p>
-      </div>
+      </Card>
       
     )
   })
 
     return (
-        <div>
+        <Geral>
           <Header/>
-          <div>
             <p>{trip.name}</p>
-            <p>Planeta -  {trip.planet}</p>
-            <p>Duração - {trip.durationInDays}</p>
-            <p>Data - {trip.date}</p>
+          <CardPrincipal>            
+            <p>Onde? - {trip.planet}</p>
+            <p>Por quanto tempo? - {trip.durationInDays}</p>
+            <p>Quando? - {trip.date}</p>
             <p> {trip.description}</p>
-          </div>
-          <div>
-            <p>Lista de candidatos</p>
+          </CardPrincipal>
+          <CardPrincipal>
+            <Title>Lista de candidatos</Title>
               {candidatesList}
-            <p>Lista de Aprovados</p>
+          </CardPrincipal>
+          <CardPrincipal>
+            <Title>Lista de Aprovados</Title>
               {approvedList}
-          </div>
+          </CardPrincipal>
           <button onClick={goBack}>voltar</button>
-        </div>
+        </Geral>
       )
 }
 

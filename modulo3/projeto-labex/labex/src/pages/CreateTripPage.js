@@ -3,6 +3,42 @@ import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router"
 import Header from "../components/Header"
 import { BASE_URL } from "../constants/url"
+import styled from "styled-components"
+
+//styled
+const AreaPrincipal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Title = styled.div`
+  font-size: 30px;
+  margin-top: 5vh;
+`
+
+const ContainerPrincipal = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 10vh;
+  padding: 10px;
+`
+
+const Form = styled.form`
+  display:flex;
+  flex-direction: column;
+  margin: 5px;
+`
+
+const Click2 = styled.button`
+  height: 40px;
+  width: 100px;
+  margin: 40px;
+`
 
 const CreateTripPage = () => {
   //history
@@ -61,12 +97,12 @@ const CreateTripPage = () => {
   console.log(form)
 
     return (
-        <div>
+        <AreaPrincipal>
           <Header/>
           <div>
-            <h3>Criar Viagem</h3>
-            <div>
-              <form onSubmit={createTrip}>
+            <Title>Criar Viagem</Title>
+            <ContainerPrincipal>
+              <Form onSubmit={createTrip}>
                 <p>Nome </p>
                 <input
                   value={form.name}
@@ -104,11 +140,11 @@ const CreateTripPage = () => {
                   required
                 />
                 <button> Enviar Dados</button>
-              </form>
-            </div>
+              </Form>
+            </ContainerPrincipal>
           </div>
-          <button onClick={goBack}>voltar</button>
-        </div>
+          <Click2 onClick={goBack}>voltar</Click2>
+        </AreaPrincipal>
       )
 }
 

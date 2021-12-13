@@ -47,6 +47,10 @@ const Form = styled.form`
   flex-direction: column;
   margin: 5px;
 `
+const botaoMenu = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 const ApplicationFormPage = () => {
   //history
@@ -87,7 +91,7 @@ const ApplicationFormPage = () => {
       country: form.country
     }
     axios.post(`${BASE_URL}/trips/${form.id}/apply`, body)
-    .then((response) => {
+    .then(() => {
       alert('Cadastro realizado com sucesso!')
       setForm({
         ...form,
@@ -98,7 +102,7 @@ const ApplicationFormPage = () => {
         country: ""
       })
     })
-    .catch((error) => {
+    .catch(() => {
       alert('Verifique seus dados e tente novamente')
     })
   }
@@ -184,14 +188,13 @@ const ApplicationFormPage = () => {
                 onChange={applyToTrip}
                 required
               />
-            </Card>            
+            </Card>
+            <botaoMenu>
+              <Click2 onClick={goBack}>Voltar</Click2>
+              <Click2>Enviar</Click2>
+            </botaoMenu>                     
           </Form>
-        </ContainerPrincipal>
-        <botaoMenu>
-          <Click2>Enviar</Click2>
-          <Click2 onClick={goBack}>voltar</Click2>
-        </botaoMenu>
-        
+        </ContainerPrincipal>        
     </AreaPrincipal>
   )
 }

@@ -43,6 +43,11 @@ const ContainerCard = styled.div`
     border: 2px solid black;
     border-radius: 20px 5px;
     padding: 1vh;
+
+    &:hover {
+        background-color: black;
+        cursor: pointer;
+    }
 `
 
 const Titulo = styled.h3`

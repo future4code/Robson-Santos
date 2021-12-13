@@ -38,11 +38,10 @@ export const Login = () => {
                     <Click onClick = {logout}>Logout</Click>
                 </Container>
                 :
-                <div>
-                    Olá, visitante
+                <Container>
+                    <Title>Olá, visitante</Title>
                     <Click onClick = {goToLogin}>Login</Click>
-                </div>
-                
+                </Container>                
             }
             
         </div>

@@ -21,6 +21,11 @@ const CardViagens = styled.div`
     padding: 10px;
     margin: 5px;
     justify-content: space-between;
+
+    &:hover {
+        background-color: black;
+        cursor: pointer;
+    }
 `
 
 const Geral = styled.div`
