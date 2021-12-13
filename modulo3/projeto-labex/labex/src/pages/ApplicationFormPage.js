@@ -8,6 +8,7 @@ import Select from 'react-select'
 import useGetTrips from "../hooks/useGetTrips"
 import styled from "styled-components"
 
+//styled
 const AreaPrincipal = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,12 +18,34 @@ const AreaPrincipal = styled.div`
 const ContainerPrincipal = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 1vh;
-  border: 2px solid black;
-  border-radius: 20px 5px;
-  padding: 1vh;
+  width: 50vw;
   background-color: white;
-  width: 60vw;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 10vh;
+  padding: 10px;
+`
+
+const Card = styled.div`
+  display: flex;
+  margin: 10px;  
+`
+
+const Title = styled.div`
+  font-size: 30px;
+  margin-top: 5vh;
+`
+
+const Click2 = styled.button`
+  height: 40px;
+  width: 100px;
+  margin: 40px;
+`
+
+const Form = styled.form`
+  display:flex;
+  flex-direction: column;
+  margin: 5px;
 `
 
 const ApplicationFormPage = () => {
@@ -102,9 +125,9 @@ const ApplicationFormPage = () => {
   return (
     <AreaPrincipal>
       <Header/>
-        <ContainerPrincipal>
-          <h3>Formulário</h3>
-          <form onSubmit={sendApplication}>
+      <Title>Formulário</Title>
+        <ContainerPrincipal>          
+          <Form onSubmit={sendApplication}>
             <select name="id"
               onChange={applyToTrip}
               required>
@@ -112,6 +135,7 @@ const ApplicationFormPage = () => {
               {listTrips}
             </select>
 
+            <Card>
             <p>Nome</p>
             <input
               value={form.name}
@@ -119,43 +143,55 @@ const ApplicationFormPage = () => {
               onChange={applyToTrip}
               required
             />
-
-            <p>Idade</p>
-            <input
-              value={form.age}
-              name="age"
-              onChange={applyToTrip}
-              required
-            />
-
-            <p>Profissão</p>
-            <input
-              value={form.profession}
-              name="profession"
-              onChange={applyToTrip}
-              required
-            />
-
-            <p>País</p>
-            <Select 
-              options={options} 
-              value={form.country}
-              name="country" 
-              onChange={loadCountry} 
-            />
-
-            <p>Motivo da viagem</p>
-            <input
-              value={form.applicationText}
-              name="applicationText"
-              onChange={applyToTrip}
-              required
-            />
-
-            <button>Enviar</button>
-            <button onClick={goBack}>voltar</button>
-          </form>
+            </Card>
+            
+            <Card>
+              <p>Idade</p>
+              <input
+                value={form.age}
+                name="age"
+                onChange={applyToTrip}
+                type="number"
+                required
+              />
+            </Card>
+            
+            <Card>
+              <p>Profissão</p>
+              <input
+                value={form.profession}
+                name="profession"
+                onChange={applyToTrip}
+                required
+              />
+            </Card>
+            
+            <Card>
+              <p>País</p>
+              <Select 
+                options={options} 
+                value={form.country}
+                name="country" 
+                onChange={loadCountry} 
+              />
+            </Card>
+            
+            <Card>
+              <p>Motivo da viagem</p>
+              <input
+                value={form.applicationText}
+                name="applicationText"
+                onChange={applyToTrip}
+                required
+              />
+            </Card>            
+          </Form>
         </ContainerPrincipal>
+        <botaoMenu>
+          <Click2>Enviar</Click2>
+          <Click2 onClick={goBack}>voltar</Click2>
+        </botaoMenu>
+        
     </AreaPrincipal>
   )
 }

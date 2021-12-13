@@ -7,7 +7,7 @@ const AreaPrincipal = styled.div`
     display: flex;
     height: 10vh;
     background-color: yellow;
-    font-size: 24px;
+    font-size: 30px;
     align-items: center;
     justify-content: space-around;
     width:100vw;

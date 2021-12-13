@@ -65,6 +65,7 @@ const LoginPage = () => {
           placeholder = "nome"
           value = {nome}
           onChange = {onChangeNome}
+          required
           />
           <input
           placeholder = "email"

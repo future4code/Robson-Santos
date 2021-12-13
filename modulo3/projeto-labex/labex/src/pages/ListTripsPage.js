@@ -19,6 +19,23 @@ const ContainerPrincipal = styled.div`
     }
 `
 
+const Click2 = styled.button`
+  height: 60px;
+  width: 150px;
+  margin: 40px;
+`
+
+const Title = styled.div`
+  font-size: 30px;
+  margin-top: 5vh;
+`
+
+const AreaPrincipal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const ContainerCard = styled.div`
     display: flex;
     flex-direction: column;
@@ -56,12 +73,16 @@ const ListTripsPage = () => {
     })
 
     return (
-        <div>
+        <AreaPrincipal>
             <Header/>
+            <Title> Viagens Disponíveis</Title>
             <ContainerPrincipal>{showTrips}</ContainerPrincipal>   
-            <button onClick={goToApplicationForm}>Quero me inscrever!</button> 
-            <button onClick={goBack}>voltar</button>
-        </div>
+            <botaoMenu>
+                <Click2 onClick={goToApplicationForm}>Quero me inscrever!</Click2> 
+                <Click2 onClick={goBack}>voltar</Click2>
+            </botaoMenu>
+            
+        </AreaPrincipal>
       )
 }
 

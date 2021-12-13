@@ -9,12 +9,40 @@ import { BASE_URL } from "../constants/url"
 const CardPrincipal = styled.div`
     display: flex;
     flex-direction: column;
-    width: 60vw;
+    width: 50vw;
     background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: 10vh;
 `
 
 const CardViagens = styled.div`
+    display: flex;
+    padding: 10px;
     margin: 5px;
+    justify-content: space-between;
+`
+
+const Geral = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+const Click = styled.button`
+    width: 25px;
+    height: 25px;
+`
+
+const Click2 = styled.button`
+    height: 40px;
+    width: 100px;
+    margin: 40px;
+`
+
+const Title = styled.div`
+    font-size: 30px;
+    margin-top: 5vh;
 `
 
 const AdminHomePage = () => {
@@ -67,23 +95,23 @@ const AdminHomePage = () => {
                 onClick={() => goToTripDetails(trip.id)}>
                 {trip.name}
                 </div>
-                <div onClick={() => deleteTrip(trip.id)}> X </div>
+                <Click onClick={() => deleteTrip(trip.id)}> X </Click>
             </CardViagens>
         )
     })
 
     return (
-        <div>
+        <Geral>
           <Header/>
-          <h3>Viagens</h3>
+            <Title>Viagens</Title>
           <CardPrincipal>
             {loadTrips}
           </CardPrincipal>          
-          <div>
-            <button onClick={goToCreateTrip}>Criar viagem</button>
-            <button onClick={goBack}>voltar</button>
-          </div>          
-        </div>
+          <botaoMenu>
+            <Click2 onClick={goToCreateTrip}>Criar viagem</Click2>
+            <Click2 onClick={goBack}>voltar</Click2>
+          </botaoMenu>          
+        </Geral>
       )
 
 }

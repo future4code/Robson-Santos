@@ -14,7 +14,7 @@ const AreaPrincipal = styled.div`
   background-image: url(${background});
   background-size: cover;
   background-repeat: repeat-y;
-  height: 1fr;
+  height: 100vh;
 `
 
 const App = () => {

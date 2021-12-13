@@ -1,5 +1,20 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useHistory } from "react-router"
+import styled from "styled-components"
+
+const Container = styled.div`
+    display: flex;
+    align-items: center;
+`
+
+const Click = styled.button`
+    height: 30px;
+    width: 60px;
+`
+
+const Title = styled.div`
+    margin: 10px;
+`
 
 export const Login = () => {
     const history = useHistory()
@@ -18,14 +33,14 @@ export const Login = () => {
     return (
         <div>
             {token !== null ?
-                <div>
-                    Olá, {name}
-                    <button onClick = {logout}>Logout</button>
-                </div>
+                <Container>
+                    <Title>Olá, {name}</Title>
+                    <Click onClick = {logout}>Logout</Click>
+                </Container>
                 :
                 <div>
                     Olá, visitante
-                    <button onClick = {goToLogin}>Login</button>
+                    <Click onClick = {goToLogin}>Login</Click>
                 </div>
                 
             }
