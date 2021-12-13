@@ -30,6 +30,14 @@ const CreateTripPage = () => {
     axios.post(`${BASE_URL}/trips`, form, header)
     .then(() => {
       alert('Viagem criada com sucesso!')
+      setForm({
+        ...form,
+        name: '',
+        description: '',
+        planet: '',
+        durationInDays: '',
+        date: ''
+      })
     })
     .catch(() => {
       alert('Verifique os dados e tente novamente')

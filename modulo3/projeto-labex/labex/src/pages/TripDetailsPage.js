@@ -16,6 +16,7 @@ const TripDetailsPage = () => {
   const id = localStorage.getItem('id')
   const [trip, setTrip] = useState([])
   const [candidates, setCandidates] = useState([])
+  const [approved, SetApproved] = useState([])
   const header = { headers: {
     auth: token
   }}
@@ -33,15 +34,23 @@ const TripDetailsPage = () => {
     axios.get(`${BASE_URL}/trip/${id}`, header)
     .then((response) => {
       setTrip(response.data.trip)
-      setCandidates(response.data.candidates)
+      setCandidates(response.data.trip.candidates)
+      SetApproved(response.data.trip.approved)
     })
   }
 
   const decideCandidate = (choose) => {
-    axios.put(`${BASE_URL}/trips/id/candidates/${choose.id}/decide`)
+    const body = {
+      approve: true
+    }
+    axios.put(`${BASE_URL}/trips/${id}/candidates/${choose}/decide`, body, header)
+    .then(() => {
+      alert('Candidato aprovado com sucesso!')
+      getTripDetail()
+    })
   }
 
-  const candidatesList = () => candidates.map((candidate) => {
+  const candidatesList = candidates.map((candidate) => {
     return (
       <div>
         <div key={candidate.id}>
@@ -54,7 +63,17 @@ const TripDetailsPage = () => {
     )
   })
 
-  console.log(candidates)
+  const approvedList = approved.map((candidate) => {
+    return (
+      <div>
+        <p key={candidate.id}>
+        {candidate.name}
+        </p>
+      </div>
+      
+    )
+  })
+
     return (
         <div>
           <Header/>
@@ -66,7 +85,10 @@ const TripDetailsPage = () => {
             <p> {trip.description}</p>
           </div>
           <div>
-            {candidatesList}
+            <p>Lista de candidatos</p>
+              {candidatesList}
+            <p>Lista de Aprovados</p>
+              {approvedList}
           </div>
           <button onClick={goBack}>voltar</button>
         </div>

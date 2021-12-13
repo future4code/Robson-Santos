@@ -27,7 +27,6 @@ const LoginPage = () => {
 
   const onChangeNome = (event) => {
     setNome(event.target.value)
-    localStorage.setItem('nome', nome)
   }
 
   const checkToken = () => {
@@ -39,7 +38,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     checkToken()
-  }, [])
+  }, [localStorage.setItem('nome', nome)])
 
   const onSubmitLogin = (event) => {
     event.preventDefault()

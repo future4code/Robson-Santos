@@ -46,8 +46,6 @@ const ApplicationFormPage = () => {
 
   //funções
   const applyToTrip = (event) => {
-
-    console.log(event)
     event.preventDefault()
     const {name, value} = event.target
     setForm({
@@ -67,11 +65,17 @@ const ApplicationFormPage = () => {
     }
     axios.post(`${BASE_URL}/trips/${form.id}/apply`, body)
     .then((response) => {
-      console.log(response.data)
       alert('Cadastro realizado com sucesso!')
+      setForm({
+        ...form,
+        name: "",
+        age: "",
+        applicationText: "",
+        profession: "",
+        country: ""
+      })
     })
     .catch((error) => {
-      console.log(error.data)
       alert('Verifique seus dados e tente novamente')
     })
   }
