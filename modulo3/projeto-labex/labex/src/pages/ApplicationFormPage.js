@@ -1,7 +1,6 @@
 import axios from "axios"
 import React, { useState, useMemo} from "react"
 import { useHistory } from "react-router"
-import Footer from "../components/Footer"
 import Header from "../components/Header"
 import { BASE_URL } from "../constants/url"
 import countryList from "react-select-country-list"
@@ -41,7 +40,7 @@ const ApplicationFormPage = () => {
     age: "",
     applicationText: "",
     profession: "",
-    country: country
+    country: ""
   })
   const options = useMemo(() => countryList().getData(), [])
 
@@ -56,8 +55,6 @@ const ApplicationFormPage = () => {
       [name]: value
     })    
   }
-
-  console.log(form)
 
   const sendApplication = (event) => {
     event.preventDefault()
@@ -91,11 +88,12 @@ const ApplicationFormPage = () => {
   const loadCountry = (event) => {
     setForm({
       ...form,
-      [country]: event.label
+      ["country"]: event.label
     })
   }
 
   console.log(form)
+  console.log(country)
 
   return (
     <AreaPrincipal>
@@ -104,8 +102,8 @@ const ApplicationFormPage = () => {
           <h3>Formulário</h3>
           <form onSubmit={sendApplication}>
             <select name="id"
-            onChange={applyToTrip}
-            required>
+              onChange={applyToTrip}
+              required>
               <option defaultValue> Viagens disponíveis</option>
               {listTrips}
             </select>
@@ -136,23 +134,23 @@ const ApplicationFormPage = () => {
 
             <p>País</p>
             <Select 
-            options={options} 
-            value={form.country}
-            name="country" 
-            onChange={loadCountry} 
+              options={options} 
+              value={form.country}
+              name="country" 
+              onChange={loadCountry} 
             />
 
             <p>Motivo da viagem</p>
             <input
-            value={form.applicationText}
-            name="applicationText"
-            onChange={applyToTrip}
-            required
+              value={form.applicationText}
+              name="applicationText"
+              onChange={applyToTrip}
+              required
             />
 
-          <button>Enviar</button>
-          <button onClick={goBack}>voltar</button>
-            </form>
+            <button>Enviar</button>
+            <button onClick={goBack}>voltar</button>
+          </form>
         </ContainerPrincipal>
     </AreaPrincipal>
   )

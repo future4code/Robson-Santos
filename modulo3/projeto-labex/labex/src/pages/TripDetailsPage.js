@@ -35,16 +35,13 @@ const TripDetailsPage = () => {
       setTrip(response.data.trip)
       setCandidates(response.data.candidates)
     })
-    .catch((error) => {
-      console.log(error.response)
-    })
   }
 
   const decideCandidate = (choose) => {
     axios.put(`${BASE_URL}/trips/id/candidates/${choose.id}/decide`)
   }
 
-  const candidatesList = candidates.map((candidate) => {
+  const candidatesList = () => candidates.map((candidate) => {
     return (
       <div>
         <div key={candidate.id}>
@@ -57,6 +54,7 @@ const TripDetailsPage = () => {
     )
   })
 
+  console.log(candidates)
     return (
         <div>
           <Header/>

@@ -2,7 +2,6 @@ import React from "react"
 import Header from "../components/Header"
 import { useHistory } from "react-router"
 import useGetTrips from "../hooks/useGetTrips"
-import Footer from "../components/Footer"
 import styled from "styled-components"
 
 //styled
