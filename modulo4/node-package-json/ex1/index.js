@@ -1,5 +1,3 @@
-// 
-
 const nome = process.argv[2]
 const idade = Number(process.argv[3])
 const futuro = Number(process.argv[3]) + Number(7)
