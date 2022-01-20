@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./build/ex3.js"
+    "start": "tsc && node ./build/ex2.js"
   },
   "author": "Amanda Rangel",
   "license": "ISC"
