@@ -6,8 +6,10 @@ enum GENERO {
 	TERROR="terror"
 }
 
+let filme: object 
+
 function organizaFilmes (nome: string, ano: number, genero: GENERO, nota?: number) {
-    return {
+    return filme = {
         nome: nome,
         anoLancamento: ano,
         genero: genero,
