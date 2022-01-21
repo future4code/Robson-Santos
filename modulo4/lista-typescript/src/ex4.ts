@@ -21,7 +21,7 @@ const arrayDeFuncionarios: colaborador[] = [
 	{ nome: "Paola" ,salario: 3500, setor: SETOR.MARKETING, presencial: true }
 ]
 
-const marketing = arrayDeFuncionarios.filter(function(setor) {
+const marketing = arrayDeFuncionarios.filter((setor) => {
     return setor.setor === 'marketing'
 })
 
