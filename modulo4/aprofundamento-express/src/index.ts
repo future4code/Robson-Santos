@@ -29,3 +29,23 @@ type toDo = {
 }
 
 // ex. 3
+const arrayToDo: toDo[] = [
+    {
+        userId: 1,
+        id: 1001,
+        title: "estudar",
+        completed: false
+    },
+    {
+        userId: 2,
+        id: 1002,
+        title: "trabalho",
+        completed: false
+    },
+    {
+        userId: 3,
+        id: 1003,
+        title: "read",
+        completed: true
+    }
+]
