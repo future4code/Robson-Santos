@@ -28,3 +28,4 @@ type toDo = {
     completed: boolean
 }
 
+// ex. 3
