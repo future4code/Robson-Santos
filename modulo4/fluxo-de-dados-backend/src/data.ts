@@ -1,5 +1,5 @@
-type produto = {
-    id: string,
+export type produto = {
+    id: number | string,
     name: string,
     price: number
 }
