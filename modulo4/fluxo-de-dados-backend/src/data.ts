@@ -1,12 +1,10 @@
 type produto = {
     id: string,
     name: string,
-    price: boolean
+    price: number
 }
 
-const arrayDeProduto: any = [
-    {
-        produtos: [
+export const arrayDeProduto: produto[] = [
             {
                 id: "25a2",
                 name: "laranja",
@@ -27,6 +25,4 @@ const arrayDeProduto: any = [
                 name: "pessego",
                 price: 5
             }
-        ]     
-    }
-]
+        ] 
