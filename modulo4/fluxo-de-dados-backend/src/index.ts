@@ -42,6 +42,17 @@ app.get("/produtos", (req: Request, res: Response) => {
     res.status(200).send(carregarProdutos)
 })
 
+//ex 6
+app.delete("produtos/:id", async (req: Request, res: Response) => {
+    const index: number = arrayDeProduto.findIndex((produto) => {
+        return produto.id === Number(req.params.id)
+    })
+
+    arrayDeProduto.splice(index, 1)
+    res.status(200).send("Produto deletado com sucesso")
+})
+
+// server config
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
       const address = server.address() as AddressInfo;
