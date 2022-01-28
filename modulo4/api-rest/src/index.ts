@@ -6,7 +6,16 @@ const app = express()
 
 app.use(express.json())
 
-
+//ex 1
+app.get("/users", (req: Request, res: Response) => {
+    const result: user[] = users;
+  
+    if (result) {
+      res.status(200).send(result);
+    } else {
+      res.status(400).send("not found");
+    }
+  })
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
