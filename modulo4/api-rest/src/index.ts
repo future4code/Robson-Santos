@@ -19,7 +19,7 @@ app.get("/users", (req: Request, res: Response) => {
 
 //ex 2
 app.get("/user/tipo/:type", (req: Request, res: Response) => {
-    let errorCode = 400;
+    let errorCode = 400
   
     try {
       const result = users.filter(
@@ -28,7 +28,7 @@ app.get("/user/tipo/:type", (req: Request, res: Response) => {
   
       if (result.length === 0 || !result) {
         errorCode = 404;
-        throw new Error("Nenhum dado foi achado, insira um type válido")
+        throw new Error("Nenhum dado foi encontrado")
       }
   
       res.status(200).send(result);
@@ -39,6 +39,26 @@ app.get("/user/tipo/:type", (req: Request, res: Response) => {
 
 // a) path params
 // b) com filtro para que só os types válidos sejam enviados
+
+//ex 3
+app.get("/user/nome", (req: Request, res: Response) => {
+    let errorCode = 400
+  
+    try {
+      const result = users.filter(
+        (user: user) => user.name === (req.query.nome as string)
+      )
+  
+      if (result.length === 0 || !result) {
+        errorCode = 404
+        throw new Error("Nenhum nome foi achado, insira um nome válido")
+      }
+  
+      res.status(200).send(result);
+    } catch (error) {
+      res.status(errorCode)
+    }
+  })
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
