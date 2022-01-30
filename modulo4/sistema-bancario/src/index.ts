@@ -57,6 +57,23 @@ app.get('/conta/saldo', (req: Request, res: Response) => {
 })
 
 //add saldo
+app.put('/conta/adc', (req: Request, res: Response) => {
+    let nome: string = req.body.nome as string
+    let cpf: string = req.body.cpf as string
+    let valor: number = req.body.valor as number
+
+    let indice: number = usuarios.findIndex((conta) => {
+      return nome == conta.nome && cpf == conta.cpf
+    })
+
+    if (indice != -1) {
+        let saldoAtualizado: number | undefined | any = 0
+        saldoAtualizado = usuarios[indice].saldo
+        res.status(202).send(`Valor adicionado com sucesso. Seu novo saldo é ${saldoAtualizado + valor}`)
+    } else {
+        res.status(404).send('Conta não encontrada')
+    }
+})
 
 //pagar conta
 
