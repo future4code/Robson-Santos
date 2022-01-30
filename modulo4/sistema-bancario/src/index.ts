@@ -12,7 +12,7 @@ app.get('/conta', (req: Request, res: Response) => {
   res.send(usuarios)
 })
 
-// Criar conta
+//criar conta
 app.post('/conta', (req: Request, res: Response) => {
     let novaConta: conta = {
         idade: req.body.idade,
@@ -39,6 +39,29 @@ app.post('/conta', (req: Request, res: Response) => {
         res.status(201).send('Conta criada com sucesso')
     }
 })
+
+//pegar saldo
+app.get('/conta/saldo', (req: Request, res: Response) => {
+    let nome: string = req.query.nome as string
+    let cpf: string = req.query.cpf as string
+
+    let indice: number = usuarios.findIndex((conta) => {
+        return nome == conta.nome && cpf == conta.cpf
+    })
+    
+    if (indice != -1) {
+        res.status(202).send(`O saldo da sua conta é ${usuarios[indice].saldo}`)
+    } else {        
+        res.status(404).send('Conta não encontrada')
+    }
+})
+
+//add saldo
+
+//pagar conta
+
+//transferencia
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {

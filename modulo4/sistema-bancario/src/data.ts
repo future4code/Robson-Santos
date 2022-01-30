@@ -1,11 +1,9 @@
-import { textSpanEnd } from "typescript"
-
 export type conta = {
     idade: number,
     nome: string,
-    cpf: string | number,
-    dataDeNascimento: string | number,
-    saldo: number
+    cpf: string,
+    dataDeNascimento: string,
+    saldo: number | undefined
 }
 
 export let usuarios: conta[] = [
