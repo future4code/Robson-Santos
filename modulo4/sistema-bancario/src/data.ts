@@ -13,5 +13,12 @@ export let usuarios: conta[] = [
         cpf: '012.345.678-90',
         dataDeNascimento: '09-09-1997',
         saldo: 5000
+    },
+    {
+        idade: 32,
+        nome: 'Rob',
+        cpf: '987.654.321-09',
+        dataDeNascimento: '25-01-1990',
+        saldo: 1000
     }
 ]
