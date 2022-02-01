@@ -14,3 +14,7 @@ c)update Actor set name = "Fernanda Montenegro", birth_date = "1929-10-16", sala
 
 d) Dá erro por não encontrar o campo na tabela
 
+### Exercicio 3
+a) delete from Actor where name = "Fernanda Montenegro";
+
+b) delete from Actor where salary > "1000000" and gender = "male";
