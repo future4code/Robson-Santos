@@ -16,5 +16,12 @@ d) Dá erro por não encontrar o campo na tabela
 
 ### Exercicio 3
 a) delete from Actor where name = "Fernanda Montenegro";
-
 b) delete from Actor where salary > "1000000" and gender = "male";
+
+### Exercicio 4
+a) select max(salary) from Actor;
+b) select min(salary) from Actor where gender = "female";
+c) select COUNT(*) from Actor where gender = "female";
+d) select sum(salary) from Actor;
+
+### Exercicio 5
