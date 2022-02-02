@@ -34,3 +34,18 @@ c) select * from Actor order by salary;
 d) select * from Actor order by salary desc limit 3;
 
 e) select avg(salary), gender from Actor group by gender;
+
+### Exercicio 6
+a) alter table Filmes add data_limite date;
+
+b) alter table Filmes change avaliacao avaliacao float;
+
+c)  update Filmes set data_limite = "2020-12-31" where id = "003";
+
+    update Filmes set data_limite = "2015-12-31" where id = "001";
+
+d)  delete from Filmes where id = "003";
+
+    update Filmes set sinopse = "deletado" where id = "003";
+
+    Teve sucesso mas nenhuma linha foi afetada.
