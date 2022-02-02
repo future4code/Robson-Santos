@@ -25,3 +25,12 @@ c) select COUNT(*) from Actor where gender = "female";
 d) select sum(salary) from Actor;
 
 ### Exercicio 5
+a) Ele retorna a contagem de quantas pessoas de cada genero existe na tabela;
+
+b) select id, name from Actor order by name desc;
+
+c) select * from Actor order by salary;
+
+d) select * from Actor order by salary desc limit 3;
+
+e) select avg(salary), gender from Actor group by gender;
