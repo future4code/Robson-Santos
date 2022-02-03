@@ -13,3 +13,9 @@ e) Aparece a msg dizendo que não pode deletar por ter ligação com uma chave e
 a) A tabela de atores tem ligação com a tabela filmes e com a tabela atores. Ele se relaciona com os ids das tabelas filmes e atores
 
 d) Aparece a msg de erro que não é possivel apagar o ator por ele ter relacação com outra tabela
+
+### Exercicio 3
+a) O ON traz o resultado de filmes que estão avaliados na tabela Filmes
+
+b) SELECT m.id as movie_id, r.rate as rating FROM Filmes m
+INNER JOIN Rating r ON m.id = r.movie_id;
