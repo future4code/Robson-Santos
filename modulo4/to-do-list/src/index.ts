@@ -62,6 +62,33 @@ app.get("/user/:id", async (req: Request, res:Response) => {
     }
 })
 
+
+// editar usuário
+const editUser = async (id: string, name: string, nickname: string): Promise<any> => {
+    await connection("ToDoListUser")
+    .update({
+        name: name,
+        nickname: nickname
+    })
+    .where("id", id)
+}
+
+app.put("/user/edit/:id", async (req: Request, res:Response) => {
+    try {
+        const id: string = req.params.id
+        const {name, nickname} = req.body
+        if (!name || !nickname) {
+            res.statusCode = 422
+            throw new Error("Todos os dados precisam ser preenchidos.")
+        }
+
+        await editUser(id, name, nickname)
+        res.status(200).send("Usuário atualizado!")
+    } catch (error:any) {
+        res.status(400).send(error.message)
+    }
+})
+
 export const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
     const address = server.address() as AddressInfo;
