@@ -62,7 +62,6 @@ app.get("/user/:id", async (req: Request, res:Response) => {
     }
 })
 
-
 // editar usuário
 const editUser = async (id: string, name: string, nickname: string): Promise<any> => {
     await connection("ToDoListUser")
@@ -96,6 +95,7 @@ const createTask = async (title: string, description: string, limit_date: any, c
             id: Date.now(),
             title: title,
             description: description,
+            status: "to-do",
             limit_date: limit_date,
             creator_user_id: creator_user_id
         })
@@ -121,6 +121,24 @@ app.post("/task", async (req: Request, res: Response) => {
     }
 })
 
+// pegar todos os usuários
+function getAllUsers(): Promise<any> {
+    const result = connection('ToDoListUser')
+        .select("id", "nickname")
+        .from("ToDoListUser")
+  
+        return result
+}
+
+app.get("/user/all", async (req: Request, res:Response) => {
+    try {
+        const result = await getAllUsers()
+    
+        res.status(200).send(result);
+      } catch (error) {
+        res.status(400).send(error);
+      }
+})
 
 export const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
