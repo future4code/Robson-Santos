@@ -1,5 +1,5 @@
 import { connection } from "./connection"
-import { user } from "./types"
+import moment from 'moment'
 import express, { Request, Response} from "express"
 import cors from "cors"
 import { AddressInfo } from "net"
@@ -26,11 +26,11 @@ app.post("/user", async (req: Request, res: Response) => {
     
         if (!name || !nickname || !email) {
             res.statusCode = 406
-                throw new Error("Digite todos os campos solicitados.")
+                throw new Error("Digite todos os campos solicitados")
             }
 
         await createUser(name, nickname, email)
-        res.status(200).send("Usuário criado com sucesso!")
+        res.status(200).send("Usuário criado com sucesso")
     
         } catch (error: any) {
             res.status(400).send(error.message)
@@ -52,7 +52,7 @@ app.get("/user/:id", async (req: Request, res:Response) => {
         const user = await getUserById (id)
 
         if (!user) {
-            res.status(404).send({ message: "Usuário não encontrado!" })
+            res.status(404).send({ message: "Usuário não encontrado" })
         }
 
         res.status(200).send({ id: user.id, nickname: user.nickname })
@@ -83,11 +83,44 @@ app.put("/user/edit/:id", async (req: Request, res:Response) => {
         }
 
         await editUser(id, name, nickname)
-        res.status(200).send("Usuário atualizado!")
+        res.status(200).send("Usuário atualizado")
     } catch (error:any) {
         res.status(400).send(error.message)
     }
 })
+
+// criar tarefa
+const createTask = async (title: string, description: string, limit_date: any, creator_user_id: string): Promise<any> => {
+    await connection("ToDoListTask")
+        .insert({
+            id: Date.now(),
+            title: title,
+            description: description,
+            limit_date: limit_date,
+            creator_user_id: creator_user_id
+        })
+}
+
+app.post("/task", async (req: Request, res: Response) => {
+    try {
+        const {title, description, limit_date, creator_user_id} = req.body
+
+        if (!title || !description || !limit_date || !creator_user_id) {
+            res.statusCode = 400
+            throw new Error("Preencha todos os campos")
+        }
+
+        await createTask(title,
+            description,
+            moment(limit_date, "DD/MM/YYYY").format("YYYY/MM/DD"),
+            creator_user_id)
+
+        res.status(200).send("Tarefa criada com sucesso")
+    } catch (error:any) {
+        res.status(res.statusCode).send(error.message)
+    }
+})
+
 
 export const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
