@@ -1,5 +1,4 @@
 import knex from "knex"
-import dotenv from "dotenv"
 
 export const connection = knex({
    client: "mysql",
@@ -12,4 +11,3 @@ export const connection = knex({
       multipleStatements: true
    },
 })
-
