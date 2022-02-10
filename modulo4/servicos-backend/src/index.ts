@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import { getAddressInfo } from './services/getAddressInfo'
 
 dotenv.config()
 
@@ -11,3 +12,4 @@ app.use(cors())
 app.listen(process.env.PORT || 3003, () => {
     console.log("Server is running at port", process.env.PORT || 3003)
 })
+
