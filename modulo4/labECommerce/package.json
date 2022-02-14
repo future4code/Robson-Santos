@@ -6,8 +6,7 @@
     "start": "tsc && node ./build/index.js",
     "dev-start": "ts-node-dev ./src/index.ts",
     "build": "tsc",
-    "table-user": "tsc &&  node ./build/tables/createUser.js",
-    "table-product": "tsc &&  node ./build/tables/addProduct.js"
+    "table": "tsc &&  node ./build/tables/addProduct.js"
   },
   "author": "Robson Fernando",
   "license": "ISC",
