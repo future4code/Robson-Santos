@@ -1,10 +1,10 @@
-import express, { Express, Request, Response } from 'express'
+import express, { Request, Response } from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { user, product } from '../types/types'
 import { createUser, createProduct, getAllUsers, getAllProducts } from '../queries/query'
 
-const app: Express = express()
+const app = express()
 app.use(express.json)
 app.use(cors())
 
