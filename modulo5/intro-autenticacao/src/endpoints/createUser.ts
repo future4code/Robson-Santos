@@ -1,18 +1,18 @@
-import { Request, Response } from "express";
-import { connection } from "../connection";
-import { Authenticator } from "../services/authenticator";
-import { generateId } from "../services/idGeneration";
+import { Request, Response } from "express"
+import { connection } from "../connection"
+import { Authenticator } from "../services/authenticator"
+import { generateId } from "../services/idCreator"
 
 export const createUser = async (req: Request, res: Response) => {
 
     try {
 
         if (!req.body.email || req.body.email.indexOf("@") === -1) {
-            throw new Error("Email invalido");
+            throw new Error("Email invalido")
         }
 
         if (!req.body.password || req.body.password.length < 6) {
-            throw new Error("Senha invalida");
+            throw new Error("Senha invalida")
         }
 
         const {email, password} = req.body
