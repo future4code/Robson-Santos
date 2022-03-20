@@ -19,8 +19,8 @@ export default async function signup (
     )
     const token: string = generateToken({id})
     res.send()
-  } catch (error:any ) {
-    console.log(error.message)
+  } catch (error) {
+    console.log(error)
     res.status(500).send('Internal server error')
   }
 }
