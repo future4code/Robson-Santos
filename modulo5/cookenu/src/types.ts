@@ -17,3 +17,5 @@ export type recipe = {
   authorId: string
 }
 
+export const userTableName = 'cookenu_users'
+export const recipesTableName = 'cookenu_recipes'
